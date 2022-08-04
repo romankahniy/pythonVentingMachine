@@ -1,8 +1,11 @@
-from queries import add_category
-from queries import category_search
-from queries import item_add
 from queries import greeting
+from queries import category_search
+from queries import add_category
+from queries import item_add
 from queries import purchase
+from queries import list
+from queries import report
+from queries import report_month
 
 options = [
     {
@@ -16,6 +19,18 @@ options = [
     {
         'code': 2,
         'name': 'Add Items',
+    },
+{
+        'code': 3,
+        'name': 'Items List',
+    },
+{
+        'code': 4,
+        'name': 'Report by period',
+    },
+{
+        'code': 5,
+        'name': 'Report by day',
     },
 ]
 
@@ -46,8 +61,13 @@ elif sel == 1:
     print('-' * 34)
 elif sel == 2:
     print('Here are the products you can add: ')
-    category_search()
     item_add()
     print('-' * 34)
+elif sel == 3:
+    list()
+elif sel == 4:
+    report()
+elif sel == 5:
+    report_month()
 else:
     print('Invalid Code!')
