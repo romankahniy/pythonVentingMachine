@@ -88,3 +88,11 @@ def purchase():
     except:
         print('Something went wrong!')
         print("\U0001F62A")
+
+def list():
+    cursor.execute(' SELECT * '
+                   ' FROM Items '
+                   ' ORDER BY item_count DESC')
+    result = cursor.fetchall()
+    for row in result:
+        print(row)
