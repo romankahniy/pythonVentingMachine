@@ -118,3 +118,24 @@ def report():
     for row in res:
         print(row)
     pass
+
+def report_month():
+    date = input('Write the date in the format "YYYY-MM-DD": ')
+    cursor.execute(f' SELECT item_name'
+                   f' FROM Items s1  '
+                   f' INNER JOIN Purchases s2 ON s1.[id]=s2.[item_id] '
+                   f' WHERE purchases_at LIKE "{date}"')
+    name = cursor.fetchall()
+    print("On this day was sold: ")
+    for row in name:
+        print(row)
+    pass
+    cursor.execute(f' SELECT SUM(s1.[item_price]) AS Total_sales'
+                   f' FROM Items s1  '
+                   f' INNER JOIN Purchases s2 ON s1.[id]=s2.[item_id] '
+                   f' WHERE purchases_at LIKE "{date}"')
+    res = cursor.fetchall()
+    print("In the amount: ")
+    for row in res:
+        print(row)
+    pass
